@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        main nav li {
+            list-style-type: none;
+        }
+        
+        main nav li a {
+            text-decoration: none;
+        }
+        
+        table,
+        tr,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 1px solid;
+            padding: 10px 50px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            height: 70px;
+            width: 100%;
+        }
+        
+        .modal {
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 100%;
+            position: absolute;
+            background-color: rgb(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal2 {
+            display: flex;
+        }
+        
+        form {
+            border-radius: 10px;
+            font-weight: bolder;
+        }
+        
+        form input {
+            border-radius: 5px;
+            border: 1px solid;
+            padding: 5px;
+        }
+        
+        form p {
+            font-size: 10px;
+            color: red;
+            margin-bottom: -15px;
+            margin-top: -15px;
+            display: none;
+        }
+        
+        .loi {
+            display: flex;
+        }
+        
+        .bored {
+            border: 1px solid red;
+        }
+        
+        form button {
+            border: 1px solid;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-sm border border-primary p-0">
+        <header class="d-flex justify-content-center align-items-center p-3 bg-info">
+            <h1>Danh Sách Nhân Viên</h1>
+        </header>
+        <main>
+            <nav>
+                <ul class="d-flex align-items-center gap-5">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="but"><a href="#">Cap Nhat</a></li>
+                </ul>
+            </nav>
+            <table class="m-3">
+                <tr>
+                    <th>STT</th>
+                    <th>MSNV</th>
+                    <th>Tennv</th>
+                    <th>Ngay Hop Dong</th>
+                    <th>Chuc Vu</th>
+                    <th>Cap Bac</th>
+                </tr>
+            </table>
+        </main>
+        <footer class="bg-info"></footer>
+    </div>
+    <div class="modal">
+        <form action="" class="bg-white p-4 d-flex flex-column gap-3">
+            <h3>Thong Tin Nhan Vien</h3>
+            <input type="text" name="Msnv" placeholder="MSNV" id="msnv">
+            <p class="loimsnv">(*)</p>
+            <input type="text" name="tennv" placeholder="Ten Nhan Vien" id="tennv">
+            <p class="loitennv">(*)</p>
+            <input type="date" name="date" id="date">
+            <p class="loidate">(*)</p>
+            <div>
+                <label for="">Chuc Vu</label><br>
+                <input type="radio" name="Chucvu" id="quanly" value="Quan Ly">
+                <label for="quanly">Quan Ly</label>
+                <input type="radio" name="Chucvu" id="nhanvien" value="Nhan Vien">
+                <label for="nhanvien">Nhan Vien</label>
+            </div>
+            <p class="loicv">(*)</p>
+
+            <div class="d-flex flex-column">
+                <label for="capbac"> Cap Bac</label>
+                <select name="capbac" id="capbac">
+                <option value="Bac 1">Bac 1</option>
+                <option value="Bac 2">Bac 2</option>
+                <option value="Bac 3">Bac 3</option>
+                <option value="Bac 4">Bac 4</option>
+            </select>
+            </div>
+            <div class="d-flex flex-column">
+                <label for="heso">He so</label>
+                <input type="text" name="heso" id="heso">
+            </div>
+            <div>
+                <button class="plus bg-info">Them</button>
+                <button class="close bg-info">Close</button>
+            </div>
+        </form>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
