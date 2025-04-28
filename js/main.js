@@ -17,6 +17,10 @@ let loimsnv = document.querySelector(".loimsnv");
 let loitennv = document.querySelector(".loitennv");
 let loidate = document.querySelector(".loidate");
 let loicv = document.querySelector(".loicv");
+let email = document.querySelector("#email");
+let loiemail = document.querySelector(".loiemail");
+let sdt = document.querySelector("#sdt");
+let loisdt = document.querySelector(".loisdt");
 but.addEventListener("click", function() {
     modal.classList.add("modal2");
     heso.value = 1.28;
@@ -49,7 +53,8 @@ function checkTennv() {
         }
     })
 }
-checkTennv();
+// checkTennv();
+// console.log(checkTennv());
 
 function checkHeso() {
     capbac.addEventListener("input", function(e) {
@@ -82,6 +87,34 @@ function checkDate() {
 }
 checkDate();
 
+function checkEmail() {
+    let pattern6 = /^[A-Za-z0-9-.]+@gmail\.com$/
+    email.addEventListener("input", function(e) {
+        if (email.value.trim() == "" || !pattern6.test(email.value.trim())) {
+            email.classList.add("bored");
+            loiemail.classList.add("loi");
+        } else {
+            email.classList.remove("bored");
+            loiemail.classList.remove("loi");
+        }
+    })
+}
+checkEmail();
+
+function checkSdt() {
+    let pattern8 = /^0909-\d{3}-\d{3}$/
+    sdt.addEventListener("input", function(e) {
+        if (sdt.value.trim() == "" || !pattern8.test(sdt.value.trim())) {
+            sdt.classList.add("bored");
+            loisdt.classList.add("loi");
+        } else {
+            sdt.classList.remove("bored");
+            loisdt.classList.remove("loi");
+        }
+    })
+}
+checkSdt();
+
 function checkCV() {
     for (let k = 0; k < cv.length; k++) {
         cv[k].addEventListener("input", function() {
@@ -98,9 +131,12 @@ plus.addEventListener("click", function(e) {
     let valid1 = true;
     let valid2 = true;
     let valid3 = true;
-    let valid4 = false;
+    let valid4 = true;
+    let valid5 = true;
     let pattern1 = /^FIT-\d{5}$/;
     let pattern2 = /^[A-Z][a-z à-ỵ]+(\s[A-z][a-z à-ỵ]+)+$/
+    let pattern5 = /^[A-Za-z0-9.-]+@gmail\.com$/
+    let pattern7 = /^0909-\d{3}-\d{3}$/
     if (msnv.value.trim() === "" || !pattern1.test(msnv.value.trim())) {
         msnv.classList.add("bored");
         loimsnv.classList.add("loi");
@@ -118,10 +154,28 @@ plus.addEventListener("click", function(e) {
         loidate.classList.add("loi");
         valid3 = false;
     }
+    if (email.value.trim() == "" || !pattern5.test(email.value.trim())) {
+        email.classList.add("bored");
+        loiemail.classList.add("loi");
+        valid4 = false;
+    } else {
+        valid4 = true;
+        email.classList.remove("bored");
+        loiemail.classList.remove("loi");
+    }
+    if (sdt.value.trim() == "" || !pattern7.test(sdt.value.trim())) {
+        sdt.classList.add("bored");
+        loisdt.classList.add("loi");
+        valid5 = false;
+    } else {
+        sdt.classList.remove("bored");
+        loisdt.classList.remove("loi");
+        valid5 = true;
+    }
     if (!cv[0].checked && !cv[1].checked) {
         loicv.classList.add("loi");
     }
-    if (valid1 == true && valid2 == true && valid3 == true) {
+    if (valid1 == true && valid2 == true && valid3 == true && valid4 == true && valid5 == true) {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
